@@ -1,8 +1,11 @@
 package com.creator_surge.ui.components
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -16,7 +19,9 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PromptScreen() {
-    var promptText by remember { mutableStateOf("Create a futuristic cyberpunk mini game with animated space background and kotlin module") }
+    var promptText by remember { mutableStateOf("Create a mobile game for kids") }
+    var serverUrl by remember { mutableStateOf("http://10.0.2.2:8080") }
+    var showSettings by remember { mutableStateOf(false) }
     var isLoading by remember { mutableStateOf(false) }
     var errorMessage by remember { mutableStateOf<String?>(null) }
     var result by remember { mutableStateOf<CreationResult?>(null) }
@@ -28,6 +33,14 @@ fun PromptScreen() {
         topBar = {
             TopAppBar(
                 title = { Text("🚀 Creator Surge Super-Agent", fontWeight = FontWeight.Bold) },
+                actions = {
+                    IconButton(onClick = { showSettings = !showSettings }) {
+                        Icon(
+                            imageVector = Icons.Default.Settings,
+                            contentDescription = "Server Settings"
+                        )
+                    }
+                },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
@@ -43,11 +56,42 @@ fun PromptScreen() {
                 .verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            AnimatedVisibility(visible = showSettings) {
+                ElevatedCard(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 16.dp)
+                ) {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(
+                            text = "⚙️ Backend Server Settings",
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        OutlinedTextField(
+                            value = serverUrl,
+                            onValueChange = { serverUrl = it },
+                            label = { Text("Server Base URL / IP") },
+                            placeholder = { Text("e.g. http://192.168.1.100:8080") },
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = "💡 Emulator: http://10.0.2.2:8080\n💡 Physical Phone: Use PC local Wi-Fi IP (e.g. http://192.168.x.x:8080)",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.secondary
+                        )
+                    }
+                }
+            }
+
             OutlinedTextField(
                 value = promptText,
                 onValueChange = { promptText = it },
                 label = { Text("Enter Creative Prompt") },
-                placeholder = { Text("e.g. Build a sci-fi game with doc generator and video clip") },
+                placeholder = { Text("e.g. Build a mobile game for kids") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .heightIn(min = 100.dp),
@@ -64,10 +108,13 @@ fun PromptScreen() {
                         errorMessage = null
                         coroutineScope.launch {
                             try {
-                                val response = ApiClient.create(promptText)
+                                val response = ApiClient.create(
+                                    prompt = promptText,
+                                    baseUrl = serverUrl
+                                )
                                 result = response
                             } catch (e: Exception) {
-                                errorMessage = e.localizedMessage ?: "Failed to reach Creator Surge server"
+                                errorMessage = "${e.localizedMessage ?: "Failed to reach Creator Surge server"}\n\nNote: If using a physical phone, ensure your phone and PC are on the same Wi-Fi network and change server URL in ⚙️ settings to your PC local IP (e.g. http://192.168.x.x:8080)."
                             } finally {
                                 isLoading = false
                             }

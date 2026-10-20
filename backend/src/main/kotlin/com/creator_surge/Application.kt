@@ -14,6 +14,7 @@ import io.ktor.server.http.content.staticFiles
 import io.ktor.server.netty.Netty
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.plugins.cors.routing.CORS
+import io.ktor.server.request.header
 import io.ktor.server.request.receive
 import io.ktor.server.response.respond
 import io.ktor.server.routing.get
@@ -46,7 +47,7 @@ fun Application.module() {
         anyHost()
     }
 
-    val router = CreationRouter(outputsDir, baseUrl = "http://10.0.2.2:8080")
+    val router = CreationRouter(outputsDir)
 
     routing {
         get("/") {
@@ -58,7 +59,11 @@ fun Application.module() {
         post("/create") {
             try {
                 val request = call.receive<CreationRequest>()
-                val result = router.routeCreation(request)
+                val hostHeader = call.request.header("Host") ?: "10.0.2.2:8080"
+                val scheme = if (call.request.header("X-Forwarded-Proto") == "https") "https" else "http"
+                val baseUrl = "$scheme://$hostHeader"
+
+                val result = router.routeCreation(request, baseUrl)
                 call.respond(HttpStatusCode.OK, result)
             } catch (e: Exception) {
                 e.printStackTrace()

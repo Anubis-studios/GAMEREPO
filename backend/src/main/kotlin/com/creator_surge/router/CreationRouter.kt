@@ -38,8 +38,7 @@ data class CreationResult(
 )
 
 class CreationRouter(
-    private val outputDir: File,
-    private val baseUrl: String = "http://10.0.2.2:8080"
+    private val outputDir: File
 ) {
     private val imageEngine = ImageEngine()
     private val videoEngine = VideoEngine()
@@ -47,7 +46,7 @@ class CreationRouter(
     private val codeEngine = CodeEngine()
     private val docsEngine = DocsEngine()
 
-    fun routeCreation(request: CreationRequest): CreationResult {
+    fun routeCreation(request: CreationRequest, baseUrl: String): CreationResult {
         val prompt = request.prompt
         val mediums = request.mediums.map { it.lowercase() }
 
