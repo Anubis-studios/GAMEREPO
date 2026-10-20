@@ -1,0 +1,71 @@
+> Task :backend:checkKotlinGradlePluginConfigurationErrors
+> Task :backend:compileKotlin UP-TO-DATE
+> Task :backend:compileJava NO-SOURCE
+> Task :backend:processResources NO-SOURCE
+> Task :backend:classes UP-TO-DATE
+
+> Task :backend:run
+01:34:29.184 [main] INFO ktor.application -- Autoreload is disabled because the development mode is off.
+01:34:29.921 [main] INFO ktor.application -- Application started in 0.858 seconds.
+01:34:29.934 [main] DEBUG io.netty.util.internal.logging.InternalLoggerFactory -- Using SLF4J as the default logging framework
+01:34:29.969 [main] DEBUG io.netty.util.internal.PlatformDependent0 -- -Dio.netty.noUnsafe: false
+01:34:29.969 [main] DEBUG io.netty.util.internal.PlatformDependent0 -- Java version: 21
+01:34:29.972 [main] DEBUG io.netty.util.internal.PlatformDependent0 -- sun.misc.Unsafe.theUnsafe: available
+01:34:29.972 [main] DEBUG io.netty.util.internal.PlatformDependent0 -- sun.misc.Unsafe.copyMemory: available
+01:34:29.973 [main] DEBUG io.netty.util.internal.PlatformDependent0 -- sun.misc.Unsafe.storeFence: available
+01:34:29.974 [main] DEBUG io.netty.util.internal.PlatformDependent0 -- java.nio.Buffer.address: available
+01:34:29.975 [main] DEBUG io.netty.util.internal.PlatformDependent0 -- direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+01:34:29.975 [main] DEBUG io.netty.util.internal.PlatformDependent0 -- java.nio.Bits.unaligned: available, true
+01:34:29.977 [main] DEBUG io.netty.util.internal.PlatformDependent0 -- jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @38c5cc4c
+01:34:29.978 [main] DEBUG io.netty.util.internal.PlatformDependent0 -- java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+01:34:29.978 [main] DEBUG io.netty.util.internal.PlatformDependent -- sun.misc.Unsafe: available
+01:34:29.978 [main] DEBUG io.netty.util.internal.PlatformDependent -- -Dio.netty.tmpdir: /tmp (java.io.tmpdir)
+01:34:29.978 [main] DEBUG io.netty.util.internal.PlatformDependent -- -Dio.netty.bitMode: 64 (sun.arch.data.model)
+01:34:29.980 [main] DEBUG io.netty.util.internal.PlatformDependent -- -Dio.netty.maxDirectMemory: -1 bytes
+01:34:29.980 [main] DEBUG io.netty.util.internal.PlatformDependent -- -Dio.netty.uninitializedArrayAllocationThreshold: -1
+01:34:29.983 [main] DEBUG io.netty.util.internal.CleanerJava9 -- java.nio.ByteBuffer.cleaner(): available
+01:34:29.983 [main] DEBUG io.netty.util.internal.PlatformDependent -- -Dio.netty.noPreferDirect: false
+01:34:29.999 [main] DEBUG io.netty.util.internal.NativeLibraryLoader -- -Dio.netty.native.workdir: /tmp (io.netty.tmpdir)
+01:34:30.000 [main] DEBUG io.netty.util.internal.NativeLibraryLoader -- -Dio.netty.native.deleteLibAfterLoading: true
+01:34:30.000 [main] DEBUG io.netty.util.internal.NativeLibraryLoader -- -Dio.netty.native.tryPatchShadedId: true
+01:34:30.000 [main] DEBUG io.netty.util.internal.NativeLibraryLoader -- -Dio.netty.native.detectNativeLibraryDuplicates: true
+01:34:30.036 [main] DEBUG io.netty.channel.MultithreadEventLoopGroup -- -Dio.netty.eventLoopThreads: 8
+01:34:30.057 [main] DEBUG io.netty.util.concurrent.GlobalEventExecutor -- -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+01:34:30.064 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap -- -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+01:34:30.064 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap -- -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+01:34:30.073 [main] DEBUG io.netty.channel.nio.NioEventLoop -- -Dio.netty.noKeySetOptimization: false
+01:34:30.074 [main] DEBUG io.netty.channel.nio.NioEventLoop -- -Dio.netty.selectorAutoRebuildThreshold: 512
+01:34:30.085 [main] DEBUG io.netty.util.internal.PlatformDependent -- org.jctools-core.MpscChunkedArrayQueue: available
+01:34:30.134 [main] DEBUG io.netty.channel.DefaultChannelId -- -Dio.netty.processId: 59199 (auto-detected)
+01:34:30.139 [main] DEBUG io.netty.util.NetUtil -- -Djava.net.preferIPv4Stack: false
+01:34:30.139 [main] DEBUG io.netty.util.NetUtil -- -Djava.net.preferIPv6Addresses: false
+01:34:30.141 [main] DEBUG io.netty.util.NetUtilInitializations -- Loopback interface: lo (lo, 0:0:0:0:0:0:0:1%lo)
+01:34:30.142 [main] DEBUG io.netty.util.NetUtil -- /proc/sys/net/core/somaxconn: 4096
+01:34:30.144 [main] DEBUG io.netty.channel.DefaultChannelId -- -Dio.netty.machineId: 66:42:ab:ff:fe:6e:76:29 (auto-detected)
+01:34:30.157 [main] DEBUG io.netty.util.ResourceLeakDetector -- -Dio.netty.leakDetection.level: simple
+01:34:30.158 [main] DEBUG io.netty.util.ResourceLeakDetector -- -Dio.netty.leakDetection.targetRecords: 4
+01:34:30.205 [main] DEBUG io.netty.buffer.PooledByteBufAllocator -- -Dio.netty.allocator.numHeapArenas: 8
+01:34:30.205 [main] DEBUG io.netty.buffer.PooledByteBufAllocator -- -Dio.netty.allocator.numDirectArenas: 8
+01:34:30.205 [main] DEBUG io.netty.buffer.PooledByteBufAllocator -- -Dio.netty.allocator.pageSize: 8192
+01:34:30.205 [main] DEBUG io.netty.buffer.PooledByteBufAllocator -- -Dio.netty.allocator.maxOrder: 9
+01:34:30.205 [main] DEBUG io.netty.buffer.PooledByteBufAllocator -- -Dio.netty.allocator.chunkSize: 4194304
+01:34:30.205 [main] DEBUG io.netty.buffer.PooledByteBufAllocator -- -Dio.netty.allocator.smallCacheSize: 256
+01:34:30.205 [main] DEBUG io.netty.buffer.PooledByteBufAllocator -- -Dio.netty.allocator.normalCacheSize: 64
+01:34:30.205 [main] DEBUG io.netty.buffer.PooledByteBufAllocator -- -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+01:34:30.205 [main] DEBUG io.netty.buffer.PooledByteBufAllocator -- -Dio.netty.allocator.cacheTrimInterval: 8192
+01:34:30.205 [main] DEBUG io.netty.buffer.PooledByteBufAllocator -- -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+01:34:30.205 [main] DEBUG io.netty.buffer.PooledByteBufAllocator -- -Dio.netty.allocator.useCacheForAllThreads: false
+01:34:30.205 [main] DEBUG io.netty.buffer.PooledByteBufAllocator -- -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+01:34:30.220 [main] DEBUG io.netty.buffer.ByteBufUtil -- -Dio.netty.allocator.type: pooled
+01:34:30.220 [main] DEBUG io.netty.buffer.ByteBufUtil -- -Dio.netty.threadLocalDirectBufferSize: 0
+01:34:30.220 [main] DEBUG io.netty.buffer.ByteBufUtil -- -Dio.netty.maxThreadLocalCharBufferSize: 16384
+01:34:30.222 [main] DEBUG io.netty.bootstrap.ChannelInitializerExtensions -- -Dio.netty.bootstrap.extensions: null
+01:34:30.246 [DefaultDispatcher-worker-1] INFO ktor.application -- Responding at http://0.0.0.0:8080
+01:34:31.785 [eventLoopGroupProxy-3-1] DEBUG io.netty.buffer.AbstractByteBuf -- -Dio.netty.buffer.checkAccessible: true
+01:34:31.785 [eventLoopGroupProxy-3-1] DEBUG io.netty.buffer.AbstractByteBuf -- -Dio.netty.buffer.checkBounds: true
+01:34:31.786 [eventLoopGroupProxy-3-1] DEBUG io.netty.util.ResourceLeakDetectorFactory -- Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@24243cdf
+01:34:31.834 [eventLoopGroupProxy-3-1] DEBUG io.netty.util.Recycler -- -Dio.netty.recycler.maxCapacityPerThread: 4096
+01:34:31.835 [eventLoopGroupProxy-3-1] DEBUG io.netty.util.Recycler -- -Dio.netty.recycler.ratio: 8
+01:34:31.835 [eventLoopGroupProxy-3-1] DEBUG io.netty.util.Recycler -- -Dio.netty.recycler.chunkSize: 32
+01:34:31.835 [eventLoopGroupProxy-3-1] DEBUG io.netty.util.Recycler -- -Dio.netty.recycler.blocking: false
+01:34:31.835 [eventLoopGroupProxy-3-1] DEBUG io.netty.util.Recycler -- -Dio.netty.recycler.batchFastThreadLocalOnly: true
